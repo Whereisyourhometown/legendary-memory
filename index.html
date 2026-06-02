@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚠️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;height:100vh;overflow:hidden}
+#video{
+position:fixed;
+top:0;left:0;
+width:100vw;height:100vh;
+object-fit:cover;
+z-index:999;
+}
+</style>
+</head>
+<body>
+
+<!-- 突脸视频：沸腾者.mp4 -->
+<video id="video" loop muted playsinline autoplay>
+<source src="沸腾者.mp4" type="video/mp4">
+</video>
+
+<!-- 女鬼尖叫 -->
+<audio id="audio" loop>
+<source src="女鬼尖叫.mp3" type="audio/mpeg">
+
+
+<script>
+// 禁止返回，退不出去
+history.pushState(null,null,location.href);
+window.addEventListener('popstate',function(){
+history.pushState(null,null,location.href);
+});
+
+// 点击页面就播放尖叫（浏览器必须点一下才允许出声）
+document.body.addEventListener('click',function(){
+document.getElementById('audio').play();
+},{once:true});
+</script>
+</body>
+</html>
